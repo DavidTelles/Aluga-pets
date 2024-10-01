@@ -1,3 +1,129 @@
 @charset "UTF-8";
 
-.options { display: none; }
+body {
+    background-color: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #FF6F61;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+    margin: 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+    border: 1px solid #bd6a6a79;
+    border-radius: 8px;
+    transition: background-color 0.5s ease;
+}
+
+nav ul li a:hover {
+    background-color: #8BC34A;
+    border-radius: 10px;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    background-color: #ff6e6186;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.options p {
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #333333;
+}
+
+.options p:hover {
+    background-color: #8BC34A;
+    border-radius: 25px;
+}
+
+main {
+    padding: 40px;
+    background-color: #FFF8E1;
+    min-height: 80vh;
+    text-align: center;
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Card sobe quando o mouse passa por cima */
+}
+
+.card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333333;
+}
+
+.card p {
+    padding: 0 10px 10px;
+    font-size: 14px;
+    color: #666;
+}

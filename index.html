@@ -3,62 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluga Pet</title>
+    <title>Adota Pet</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.js">
-    <style>
-        .options { display: none; }
-    </style>
 </head>
 <body>
     <header>
+        <h1>Adota Pets</h1>
         <nav>
             <ul>
                 <li>
                     <a href="#" onclick="toggleOptions('racaOptions')">Raça</a>
                     <div id="racaOptions" class="options">
-                        <p>Opcão 1</p>
-                        <p>Opcão 2</p>
-                        <p>Opcão 3</p>
+                        <p onclick="selectOption('raca', 'Todos')">Todos</p>
+                        <p onclick="selectOption('raca', 'Mudi')">Mudi</p>
+                        <p onclick="selectOption('raca', 'Dogue alemão')">Dogue alemão</p>
+                        <p onclick="selectOption('raca', 'Rottweiler')">Rottweiler</p>
+                        <p onclick="selectOption('raca', 'Poodle')">Poodle</p>
+                        <p onclick="selectOption('raca', 'Golden Retriever')">Golden Retriever</p>
+                        <p onclick="selectOption('raca', 'Shiba Inu')">Shiba Inu</p>
+                        <p onclick="selectOption('raca', 'Beagle')">Beagle</p>
+                        <p onclick="selectOption('raca', 'Bulldog Inglês')">Bulldog Inglês</p>
+                        <p onclick="selectOption('raca', 'Labrador')">Labrador</p>
+                        <p onclick="selectOption('raca', 'Border Collie')">Border Collie</p>
+                        <p onclick="selectOption('raca', 'Cocker Spaniel')">Cocker Spaniel</p>
+                        <p onclick="selectOption('raca', 'Dachshund')">Dachshund</p>
+                        <p onclick="selectOption('raca', 'Pit Bull')">Pit Bull</p>
+                        <p onclick="selectOption('raca', 'Husky Siberiano')">Husky Siberiano</p>
                     </div>
                 </li>
                 <li>
                     <a href="#" onclick="toggleOptions('idadeOptions')">Idade</a>
                     <div id="idadeOptions" class="options">
-                        <p>Filhote</p>
-                        <p>Adulto</p>
-                        <p>Idoso</p>
+                        <p onclick="selectOption('idade', 'Todos')">Todos</p>
+                        <p onclick="selectOption('idade', 'Filhote')">Filhote</p>
+                        <p onclick="selectOption('idade', 'Adulto')">Adulto</p>
+                        <p onclick="selectOption('idade', 'Idoso')">Idoso</p>
                     </div>
                 </li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
+                <li>
+                    <a href="#" onclick="toggleOptions('generoOptions')">Gênero</a>
+                    <div id="generoOptions" class="options">
+                        <p onclick="selectOption('genero', 'Todos')">Todos</p>
+                        <p onclick="selectOption('genero', 'Masculino')">Masculino</p>
+                        <p onclick="selectOption('genero', 'Feminino')">Feminino</p>
+                    </div>
+                </li> 
+                <li>
+                    <a href="#" onclick="toggleOptions('adotadoOptions')">Já foi adotado?</a>
+                    <div id="adotadoOptions" class="options">
+                        <p onclick="selectOption('adotado', 'Todos')">Todos</p>
+                        <p onclick="selectOption('adotado', 'Sim')">Sim</p>
+                        <p onclick="selectOption('adotado', 'Não')">Não</p>
+                    </div>
+                </li> 
+                <li>
+                    <a href="#" onclick="toggleOptions('doencaOptions')">Doença</a>
+                    <div id="doencaOptions" class="options">
+                        <p onclick="selectOption('doenca', 'Todos')">Todos</p>
+                        <p onclick="selectOption('doenca', 'Sim')">Sim</p>
+                        <p onclick="selectOption('doenca', 'Não')">Não</p>
+                    </div>
+                </li>
+                <li><a href="#" onclick="applyFilters()">Aplicar Filtros</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="cards">
-            <div class="card"><p>dog1</p></div>
-            <div class="card"><p>dog2</p></div>
-            <div class="card"><p>dog3</p></div>
-            <div class="card"><p>dog4</p></div>
-            <div class="card"><p>dog5</p></div>
-            <div class="card"><p>dog6</p></div>
-            <div class="card"><p>dog7</p></div>
-            <div class="card"><p>dog8</p></div>
-            <div class="card"><p>dog9</p></div>
-            <div class="card"><p>dog10</p></div>
-            <div class="card"><p>dog11</p></div>
-            <div class="card"><p>dog12</p></div>
+        <div class="card-container">
+            <!-- Pets já existentes -->
+            <div class="card" data-raca="Mudi" data-idade="Idoso" data-adotado="Não" data-genero="Masculino">
+                <img src="img/cachorro-mudi.jpg" alt="Pet 1">
+                <h3>Julius</h3>
+                <p>°Mudi °Idoso °Negro °cinomose °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Dogue alemão" data-idade="Idoso" data-adotado="Não" data-genero="Masculino">
+                <img src="img/foto-de-cachorro-dogue-alemao.jpg" alt="Pet 2">
+                <h3>Rex</h3>
+                <p>°Dogue alemão °Idoso °Prateado °Sem °Não adotado</p>
+            </div>
+            <!-- Pets adicionais -->
+            <div class="card" data-raca="Golden Retriever" data-idade="Filhote" data-adotado="Não" data-genero="Feminino">
+                <img src="https://images.dog.ceo/breeds/retriever-golden/n02099601_5009.jpg" alt="Pet 5">
+                <h3>Mel</h3>
+                <p>°Golden Retriever °Filhote °Saudável °Não adotada</p>
+            </div>
+            <div class="card" data-raca="Shiba Inu" data-idade="Adulto" data-adotado="Não" data-genero="Masculino">
+                <img src="https://images.dog.ceo/breeds/shiba/shiba-14.jpg" alt="Pet 6">
+                <h3>Yuki</h3>
+                <p>°Shiba Inu °Adulto °Sem doenças °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Beagle" data-idade="Filhote" data-adotado="Não" data-genero="Feminino">
+                <img src="https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg" alt="Pet 7">
+                <h3>Luna</h3>
+                <p>°Beagle °Filhote °Saudável °Não adotada</p>
+            </div>
+            <div class="card" data-raca="Bulldog Inglês" data-idade="Idoso" data-adotado="Sim" data-genero="Masculino">
+                <img src="https://images.dog.ceo/breeds/bulldog/n02096585_10347.jpg" alt="Pet 8">
+                <h3>Brutus</h3>
+                <p>°Bulldog Inglês °Idoso °Artrite °Adotado</p>
+            </div>
+            <div class="card" data-raca="Poodle" data-idade="Adulto" data-adotado="Não" data-genero="Feminino">
+                <img src="https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg" alt="Pet 9">
+                <h3>Nina</h3>
+                <p>°Poodle °Adulto °Saudável °Não adotada</p>
+            </div>
+            <div class="card" data-raca="Rottweiler" data-idade="Adulto" data-adotado="Não" data-genero="Masculino">
+                <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_9256.jpg" alt="Pet 10">
+                <h3>Thor</h3>
+                <p>°Rottweiler °Adulto °Sem doenças °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Dachshund" data-idade="Idoso" data-adotado="Sim" data-genero="Feminino">
+                <img src="https://images.dog.ceo/breeds/dachshund/dog-hellos.jpg" alt="Pet 11">
+                <h3>Amora</h3>
+                <p>°Dachshund °Idoso °Problemas de visão °Adotada</p>
+            </div>
+            <div class="card" data-raca="Labrador" data-idade="Filhote" data-adotado="Não" data-genero="Masculino">
+                <img src="https://images.dog.ceo/breeds/labrador/n02099712_4751.jpg" alt="Pet 12">
+                <h3>Buddy</h3>
+                <p>°Labrador °Filhote °Saudável °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Border Collie" data-idade="Adulto" data-adotado="Sim" data-genero="Masculino">
+                <img src="https://images.dog.ceo/breeds/collie/n02106030_6751.jpg" alt="Pet 13">
+                <h3>Max</h3>
+                <p>°Border Collie °Adulto °Epilepsia °Adotado</p>
+            </div>
+            <div class="card" data-raca="Chihuahua" data-idade="Filhote" data-adotado="Não" data-genero="Masculino" data-doenca="Não">
+                <img src="https://images.dog.ceo/breeds/chihuahua/n02085620_10074.jpg" alt="Pet 9">
+                <h3>Spike</h3>
+                <p>°Chihuahua °Filhote °Saudável °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Boxer" data-idade="Adulto" data-adotado="Não" data-genero="Masculino" data-doenca="Sim">
+                <img src="https://images.dog.ceo/breeds/boxer/n02108089_6895.jpg" alt="Pet 10">
+                <h3>Rocky</h3>
+                <p>°Boxer °Adulto °Displasia °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Corgi" data-idade="Filhote" data-adotado="Não" data-genero="Feminino" data-doenca="Não">
+                <img src="https://images.dog.ceo/breeds/corgi-cardigan/n02113186_10913.jpg" alt="Pet 11">
+                <h3>Lizzy</h3>
+                <p>°Corgi °Filhote °Saudável °Não adotada</p>
+            </div>
+            <div class="card" data-raca="Doberman" data-idade="Adulto" data-adotado="Sim" data-genero="Masculino" data-doenca="Não">
+                <img src="https://images.dog.ceo/breeds/doberman/n02107170_2815.jpg" alt="Pet 12">
+                <h3>Zeus</h3>
+                <p>°Doberman °Adulto °Saudável °Adotado</p>
+            </div>
+            <div class="card" data-raca="Husky Siberiano" data-idade="Filhote" data-adotado="Não" data-genero="Masculino" data-doenca="Não">
+                <img src="https://images.dog.ceo/breeds/husky/n02110185_15947.jpg" alt="Pet 13">
+                <h3>Snow</h3>
+                <p>°Husky Siberiano °Filhote °Saudável °Não adotado</p>
+            </div>
+            <div class="card" data-raca="Pug" data-idade="Idoso" data-adotado="Sim" data-genero="Masculino" data-doenca="Sim">
+                <img src="https://images.dog.ceo/breeds/pug/n02110958_15875.jpg" alt="Pet 14">
+                <h3>Bacon</h3>
+                <p>°Pug °Idoso °Problemas respiratórios °Adotado</p>
+            </div>
+        </div>
         </div>
     </main>
-    <footer></footer>
-    
     <script>
-        function toggleOptions(id) {
-            const options = document.getElementById(id);
-            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+        let selectedFilters = {
+    raca: null,
+    idade: null,
+    genero: null,
+    adotado: null,
+    doenca: null
+};
+
+function toggleOptions(id) {
+    const allOptions = document.querySelectorAll('.options');
+    allOptions.forEach(option => {
+        if (option.id !== id) {
+            option.style.display = 'none';
         }
+    });
+
+    const options = document.getElementById(id);
+    options.style.display = options.style.display === 'none' ? 'block' : 'none';
+}
+
+function selectOption(optionsId, selectedText) {
+    selectedFilters[optionsId.replace('Options', '')] = selectedText === 'Todos' ? null : selectedText;
+
+    const options = document.getElementById(optionsId);
+    options.style.display = 'none'; // Esconde as opções após a seleção
+
+    // Aplica o filtro imediatamente
+    applyFilters();
+}
+
+function applyFilters() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        let match = true;
+        for (const filter in selectedFilters) {
+            if (selectedFilters[filter] && card.dataset[filter] !== selectedFilters[filter]) {
+                match = false;
+                break;
+            }
+        }
+        card.style.display = match ? 'block' : 'none';
+    });
+}
+
+function loadRandomDogImages() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(response => response.json())
+            .then(data => {
+                card.querySelector('img').src = data.message;
+            })
+            .catch(error => console.error('Erro ao carregar imagem:', error));
+    });
+}
+
+function populateFilterOptions() {
+    const cards = document.querySelectorAll('.card');
+    const races = new Set();
+    const ages = new Set();
+    const genders = new Set();
+    const adoptedStatuses = new Set();
+    const diseases = new Set();
+
+    cards.forEach(card => {
+        races.add(card.dataset.raca);
+        ages.add(card.dataset.idade);
+        genders.add(card.dataset.genero);
+        adoptedStatuses.add(card.dataset.adotado);
+        diseases.add(card.dataset.doenca);
+    });
+
+    const racaOptions = document.getElementById('racaOptions');
+    const idadeOptions = document.getElementById('idadeOptions');
+    const generoOptions = document.getElementById('generoOptions');
+    const adotadoOptions = document.getElementById('adotadoOptions');
+    const doencaOptions = document.getElementById('doencaOptions');
+
+    // Populate race options
+    racaOptions.innerHTML = '<p onclick="selectOption(\'raca\', \'Todos\')">Todos</p>';
+    races.forEach(race => {
+        racaOptions.innerHTML += `<p onclick="selectOption('raca', '${race}')">${race}</p>`;
+    });
+
+    // Populate age options
+    idadeOptions.innerHTML = '<p onclick="selectOption(\'idade\', \'Todos\')">Todos</p>';
+    ages.forEach(age => {
+        idadeOptions.innerHTML += `<p onclick="selectOption('idade', '${age}')">${age}</p>`;
+    });
+
+    // Populate gender options
+    generoOptions.innerHTML = '<p onclick="selectOption(\'genero\', \'Todos\')">Todos</p>';
+    genders.forEach(gender => {
+        generoOptions.innerHTML += `<p onclick="selectOption('genero', '${gender}')">${gender}</p>`;
+    });
+
+    // Populate adopted status options
+    adotadoOptions.innerHTML = '<p onclick="selectOption(\'adotado\', \'Todos\')">Todos</p>';
+    adoptedStatuses.forEach(status => {
+        adotadoOptions.innerHTML += `<p onclick="selectOption('adotado', '${status}')">${status}</p>`;
+    });
+
+    // Populate disease options
+    doencaOptions.innerHTML = '<p onclick="selectOption(\'doenca\', \'Todos\')">Todos</p>';
+    diseases.forEach(disease => {
+        doencaOptions.innerHTML += `<p onclick="selectOption('doenca', '${disease}')">${disease}</p>`;
+    });
+}
+
+window.onload = function() {
+    loadRandomDogImages();
+    populateFilterOptions();
+};
+
+
     </script>
 </body>
 </html>
