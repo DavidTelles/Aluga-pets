@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #FF6F61;
+    background-color: #1b4a50;
     padding: 20px;
 }
 
@@ -56,7 +56,7 @@ nav ul li a:hover {
 .options {
     display: none;
     position: absolute;
-    background-color: #ff6e6186;
+    background-color: #64dba086;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 5px;
@@ -126,4 +126,16 @@ main {
     padding: 0 10px 10px;
     font-size: 14px;
     color: #666;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        width: auto;
+    }
 }
