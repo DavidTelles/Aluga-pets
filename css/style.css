@@ -1,0 +1,374 @@
+@charset "UTF-8";
+
+body {
+    background-color: #F5F5F5;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url(./fundoheader/Wallpaper\ -Cachorros-papel-de-parede.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 80vh;
+    padding: 20px;
+}
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-control:hover {
+    background-color: #ccc;
+}
+
+.carousel-control.prev {
+    left: 10px;
+    width: 30px;
+}
+
+.carousel-control.next {
+    right: 10px;
+    width: 30px;
+}
+
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.indicator.active {
+    background-color: black;
+}
+
+.tnews{
+    font-size: 2rem;
+    line-height: 3.625rem;
+}
+
+.pnews{
+    font-weight: bolder;
+}
+
+img{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.prin{
+    position: fixed;
+    background-color: #F5F5F5;
+    height: 70px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 1px 2px 20px #333333;
+}
+
+.prin ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+#c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 23%;
+}
+
+.z{
+  font-family: inherit;
+  display: inline-block;
+  text-align: center;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid #560bad;
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #560bad;
+}
+
+.z::before{
+    content: "";
+  position: absolute;
+  z-index: -1;
+  background: #560bad;
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.z:hover{
+    color: #FFF;
+}
+
+.z::before{
+    top: 100%;
+    left: 100%;
+    transition: all .5s;
+}
+
+.z:hover::before{
+    top: -30px;
+    left: -30px
+}
+
+.z:active::before{
+    background: #3a0ca3;
+    transition: background 0s;
+}
+
+a.lar {
+    padding: 0px;
+    background: rgb(249, 168, 112);
+    color: rgb(255, 255, 255);
+     width: 130px;
+    height: 44px;
+    display: inline-flex;
+     -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+a.lar:hover{
+    background-color: rgb(255, 158, 90);
+}
+
+#cont{
+    display: flex;
+    left: 0;
+}
+
+.star{
+    color: rgb(249, 168, 112);
+    border: 0;
+    font-size: 33px;
+    margin: 5px;
+    transition: .4s;
+}
+
+.star:hover{
+    font-size: 22px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+    margin: 5px;
+}
+
+main button{
+    color: #333333;
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    padding: 10px;
+}
+
+main button:hover {
+    background-color: #8BC34A;
+    border-radius: 13px;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.options p {
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #333333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.options p:hover {
+    background-color: #8BC34A;
+    border-radius: 25px;
+}
+
+main {
+    padding: 40px;
+    background-color: #fff1c2;
+    min-height: 80vh;
+    text-align: center;
+}
+
+main h1{
+    color: #333333;
+}
+
+div#activeFilters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d6be9e;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#activeFiltersList {
+    display: flex; /* Usando Flexbox */
+    flex-direction: column; /* Direção dos itens na coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    text-align: center;
+    font-weight: 200;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+/* Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333333;
+}
+
+.card p {
+    padding: 0 10px 10px;
+    font-size: 14px;
+    color: #666;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        width: auto;
+    }
+}
