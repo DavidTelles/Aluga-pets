@@ -381,19 +381,4 @@ nav.menu{
     .card {
         width: auto;
     }
-
-    .hamburger {
-        display: block;
-    }
-
-    .nav-list.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background-color: #F5F5F5;
-        width: 100%;
-        z-index: 100;
-    }
 }

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adota Pet</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+    <nav class="prin">
+        <ul>
+            <li>Sobre nós</li>
+            <li>Pets</li>
+            <li>Como posso ajudar?</li>
+            <li>Projetos sociais</li>
+            <li>FAQ</li>
+            <li id="cont" class="star"><a href="fav.html"><ion-icon name="heart-outline"></ion-icon>
+            </a></li>
+            </ul>
+            <ul class="imp">
+                <li><a href="#" class="lar" id="c">Quero ajudar</a></li>
+                <li><a href="login.html" class="z" id="c">Entrar</a></li>
+                <li><a href="#" class="z" id="c">Cadastrar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Conheça nossos Pets</h1>
+        <nav>
+            <ul>
+                <li>
+                    <button onclick="toggleOptions('racaOptions')">Raça</button>
+                    <div id="racaOptions" class="options">
+                        <p onclick="selectOption('raca', 'Todos')">Todos</p>
+                        <p onclick="selectOption('raca', 'Mudi')">Mudi</p>
+                        <p onclick="selectOption('raca', 'Dogue alemão')">Dogue alemão</p>
+                        <p onclick="selectOption('raca', 'Rottweiler')">Rottweiler</p>
+                        <p onclick="selectOption('raca', 'Poodle')">Poodle</p>
+                        <p onclick="selectOption('raca', 'Golden Retriever')">Golden Retriever</p>
+                        <p onclick="selectOption('raca', 'Shiba Inu')">Shiba Inu</p>
+                        <p onclick="selectOption('raca', 'Beagle')">Beagle</p>
+                        <p onclick="selectOption('raca', 'Bulldog Inglês')">Bulldog Inglês</p>
+                        <p onclick="selectOption('raca', 'Labrador')">Labrador</p>
+                        <p onclick="selectOption('raca', 'Border Collie')">Border Collie</p>
+                        <p onclick="selectOption('raca', 'Cocker Spaniel')">Cocker Spaniel</p>
+                        <p onclick="selectOption('raca', 'Dachshund')">Dachshund</p>
+                        <p onclick="selectOption('raca', 'Pit Bull')">Pit Bull</p>
+                        <p onclick="selectOption('raca', 'Husky Siberiano')">Husky Siberiano</p>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="toggleOptions('idadeOptions')">Idade</button>
+                    <div id="idadeOptions" class="options">
+                        <p onclick="selectOption('idade', 'Todos')">Todos</p>
+                        <p onclick="selectOption('idade', 'Filhote')">Filhote</p>
+                        <p onclick="selectOption('idade', 'Adulto')">Adulto</p>
+                        <p onclick="selectOption('idade', 'Idoso')">Idoso</p>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="toggleOptions('generoOptions')">Gênero</button>
+                    <div id="generoOptions" class="options">
+                        <p onclick="selectOption('genero', 'Todos')">Todos</p>
+                        <p onclick="selectOption('genero', 'Masculino')">Masculino</p>
+                        <p onclick="selectOption('genero', 'Feminino')">Feminino</p>
+                    </div>
+                </li> 
+                <li>
+                    <button onclick="toggleOptions('adotadoOptions')">Já foi adotado?</button>
+                    <div id="adotadoOptions" class="options">
+                        <p onclick="selectOption('adotado', 'Todos')">Todos</p>
+                        <p onclick="selectOption('adotado', 'Sim')">Sim</p>
+                        <p onclick="selectOption('adotado', 'Não')">Não</p>
+                    </div>
+                </li> 
+                <li>
+                    <button onclick="toggleOptions('doencaOptions')">Doença</button>
+                    <div id="doencaOptions" class="options">
+                        <p onclick="selectOption('doenca', 'Todos')">Todos</p>
+                        <p onclick="selectOption('doenca', 'Sim')">Sim</p>
+                        <p onclick="selectOption('doenca', 'Não')">Não</p>
+                    </div>
+                    <button onclick="limparFiltros()">Limpar Filtros</button>
+                </li>
+            </ul>
+        </nav>
+        <div id="activeFilters">
+            <h3>Filtros Ativos:</h3>
+            <p id="activeFiltersList">Nenhum filtro aplicado.</p>
+        </div>            
+        <div class="card-container">
+            <div class="card" data-raca="Mudi" data-idade="Idoso" data-adotado="Não" data-genero="Masculino" data-doenca="Sim" data-id="1">
+                <img src="https://images.dog.ceo/breeds/mudi/n02104365_8156.jpg" alt="Pet 1">
+                <h3>Julius</h3>
+                <p>°Raça: Mudi<br>°Idade: Idoso<br>°Tem doença? Cinomose<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('1')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Dogue Alemão" data-idade="Idoso" data-adotado="Não" data-genero="Masculino" data-doenca="Não" data-id="2">
+                <img src="https://images.dog.ceo/breeds/great_dane/n02109047_6127.jpg" alt="Pet 2">
+                <h3>Rex</h3>
+                <p>°Raça: Dogue Alemão<br>°Idade: Idoso<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('2')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Golden Retriever" data-idade="Filhote" data-adotado="Não" data-genero="Feminino" data-doenca="Não" data-id="3">
+                <img src="https://images.dog.ceo/breeds/retriever-golden/n02099601_5009.jpg" alt="Pet 3">
+                <h3>Mel</h3>
+                <p>°Raça: Golden Retriever<br>°Idade: Filhote<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('3')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Shiba Inu" data-idade="Adulto" data-adotado="Não" data-genero="Masculino" data-doenca="Não" data-id="4">
+                <img src="https://images.dog.ceo/breeds/shiba/shiba-14.jpg" alt="Pet 4">
+                <h3>Yuki</h3>
+                <p>°Raça: Shiba Inu<br>°Idade: Adulto<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('4')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Beagle" data-idade="Filhote" data-adotado="Não" data-genero="Feminino" data-doenca="Não" data-id="5">
+                <img src="https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg" alt="Pet 5">
+                <h3>Luna</h3>
+                <p>°Raça: Beagle<br>°Idade: Filhote<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('5')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Bulldog Inglês" data-idade="Idoso" data-adotado="Sim" data-genero="Masculino" data-doenca="Sim" data-id="6">
+                <img src="https://images.dog.ceo/breeds/bulldog/n02096585_10347.jpg" alt="Pet 6">
+                <h3>Brutus</h3>
+                <p>°Raça: Bulldog Inglês<br>°Idade: Idoso<br>°Tem doença? Artrite<br>°Adotado? Sim</p>
+                <button onclick="toggleFavorito('6')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Poodle" data-idade="Adulto" data-adotado="Não" data-genero="Feminino" data-doenca="Não" data-id="7">
+                <img src="https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg" alt="Pet 7">
+                <h3>Nina</h3>
+                <p>°Raça: Poodle<br>°Idade: Adulto<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('7')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Rottweiler" data-idade="Adulto" data-adotado="Não" data-genero="Masculino" data-doenca="Não" data-id="8">
+                <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_9256.jpg" alt="Pet 8">
+                <h3>Thor</h3>
+                <p>°Raça: Rottweiler<br>°Idade: Adulto<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('8')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Dachshund" data-idade="Idoso" data-adotado="Sim" data-genero="Feminino" data-doenca="Sim" data-id="9">
+                <img src="https://images.dog.ceo/breeds/dachshund/dog-hellos.jpg" alt="Pet 9">
+                <h3>Amora</h3>
+                <p>°Raça: Dachshund<br>°Idade: Idoso<br>°Tem doença? Problemas de visão<br>°Adotado? Sim</p>
+                <button onclick="toggleFavorito('9')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+            <div class="card" data-raca="Labrador" data-idade="Filhote" data-adotado="Não" data-genero="Masculino" data-doenca="Não" data-id="10">
+                <img src="https://images.dog.ceo/breeds/labrador/n02099712_4751.jpg" alt="Pet 10">
+                <h3>Buddy</h3>
+                <p>°Raça: Labrador<br>°Idade: Filhote<br>°Tem doença? Não<br>°Adotado? Não</p>
+                <button onclick="toggleFavorito('10')"><ion-icon name="heart-outline"></ion-icon> Favoritar</button>
+            </div>
+        </div>
+        <h2>Pets Favoritados</h2>
+        <div id="favoritos-container" class="card-container">
+
+        </div>
+        </div>
+        <h1>Principais notícias:</h1>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h2 class="tnews">Laika, a vira-lata 'pioneira' enviada ao espaço em 1957 em missão 'sem volta'</h2>
+                    <img src="../img/laika.jpg.webp" alt="">
+                    <p class="pnews">Há exatos 65 anos, um ser vivo deixou, pela primeira vez, o planeta Terra rumo ao espaço: a cachorrinha Laika, lançada no satélite russo Sputnik 2, em 3 de novembro de 1957.</p>
+                    <a href="https://www.bbc.com/portuguese/internacional-41860261" target="_blank">Leia mais na BBC</a>
+                </div>
+                <div class="carousel-item">
+                    <h2 class="tnews">Pinscher morre após salvar 4 crianças de serem atacadas por rottweiler no ES</h2>
+                    <img src="../img/pinscher-morto.webp" alt="">
+                    <p class="pnews">Um cachorro pinscher foi morto ao tentar salvar quatro crianças entre três e sete anos de um ataque de outro cão da raça rottweiler em um sítio em Linhares, no Norte do Espírito Santo, na tarde desta quinta-feira (25).</p>
+                    <a href="https://g1.globo.com/es/espirito-santo/noticia/2023/05/26/pinscher-morre-apos-salvar-4-criancas-de-serem-atacadas-por-rottweiller-no-es.ghtml" target="_blank">Leia mais no G1</a>
+                </div>
+                <div class="carousel-item">
+                    <h2 class="tnews">Pequinês chamado Wasabi vence "concurso de beleza" para cães em NY</h2>
+                    <img src="../img/wasabi-pequines-1623707450823_v2_900x506.jpg.webp" alt="">
+                    <p class="pnews">Ele é pequinês e seu nome é Wasabi: esta bola peluda ganhou o prêmio "Melhor da Exposição" no Westminster Dog Show na noite de domingo, um famoso concurso de beleza canina em Nova York, que este ano mudou-se para a bucólica Tarrytown devido à pandemia</p>
+                    <a href="https://www.uol.com.br/nossa/noticias/afp/2021/06/14/pequines-chamado-wasabi-vence-famosa-exposicao-canina-de-nova-york.htm" target="_blank">Leia mais na UOL</a>
+                </div>
+            </div>
+            <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="showSlide(0)"></span>
+                <span class="indicator" onclick="showSlide(1)"></span>
+                <span class="indicator" onclick="showSlide(2)"></span>
+            </div>
+        </div>
+    </main>
+    <script src="../js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
