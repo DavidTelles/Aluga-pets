@@ -253,3 +253,52 @@ document.addEventListener('DOMContentLoaded', () => {
 atualizarIconesFavoritos();
 exibirFavoritos();
 });
+
+const petForm = document.getElementById('petForm');
+const petNameInput = document.getElementById('petName');
+const petAgeInput = document.getElementById('petAge');
+const favoritesList = document.getElementById('favorites');
+const favoritesContainer = document.getElementById('favoritesList');
+const showFavoritesBtn = document.getElementById('showFavoritesBtn');
+
+let favorites = [];
+
+// Adiciona o pet e marca como favorito se checkbox estiver ativado
+petForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const petName = petNameInput.value;
+    const petAge = petAgeInput.value;
+
+    // Adiciona o pet à lista de favoritos se a caixa estiver marcada
+    const isFavorite = confirm(`O ${petName} é seu favorito?`);
+
+    if (isFavorite) {
+        favorites.push(petName); // Adiciona o nome do pet aos favoritos
+        updateFavoritesDisplay();
+    }
+
+    // Limpa os campos do formulário
+    petNameInput.value = '';
+    petAgeInput.value = '';
+});
+
+// Atualiza a exibição da lista de pets favoritos
+function updateFavoritesDisplay() {
+    favoritesList.innerHTML = '';
+    favorites.forEach(favorite => {
+        const li = document.createElement('li');
+        li.textContent = favorite;
+        favoritesList.appendChild(li);
+    });
+}
+
+// Mostra ou esconde a lista de pets favoritos ao clicar no botão
+showFavoritesBtn.addEventListener('click', () => {
+    if (favoritesContainer.style.display === 'none') {
+        favoritesContainer.style.display = 'block';
+        showFavoritesBtn.textContent = 'Esconder Pets Favoritos';
+    } else {
+        favoritesContainer.style.display = 'none';
+        showFavoritesBtn.textContent = 'Mostrar Pets Favoritos';
+    }
+});

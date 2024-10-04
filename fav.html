@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Cadastro de Pets</h1>
+        <form id="petForm">
+            <input type="text" id="petName" placeholder="Nome do Pet" required>
+            <input type="text" id="petAge" placeholder="Idade do Pet" required>
+            <button type="submit">Adicionar Pet</button>
+        </form>
+    </div>
+
+    <h2>Pets Favoritos</h2>
+    <button id="showFavoritesBtn">Mostrar Pets Favoritos</button>
+    <div id="favoritesList" style="display: none;">
+        <ul id="favorites"></ul>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
